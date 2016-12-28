@@ -1,72 +1,490 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Acquaintance of Angular2</title>
-    <meta name="description" content="初识angular2，angular简介">
-    <meta name="author" content="limerick">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/league.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
+<head>
+	<meta charset="utf-8">
+	<title>Acquaintance of Angular2</title>
+	<meta name="description" content="初识angular2，angular简介">
+	<meta name="author" content="limerick">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/league.css">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- Printing and PDF exports -->
+	<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-		<style>
-			.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
-				text-transform: none;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+	<style>
+		.reveal h1,
+		.reveal h2,
+		.reveal h3,
+		.reveal h4,
+		.reveal h5,
+		.reveal h6 {
+			text-transform: none;
+		}
+		.reveal pre{
+			box-shadow: none;
+		}
+		.reveal section img {
+			margin: 15px 0px;
+			background: rgba(255, 255, 255, 0);
+			border: none;
+			box-shadow: none;
+		}
+		.deck-slide .profile {
+			position: absolute;
+			bottom: -8em;
+			right: 3em;
+		}
+		.deck-slide .profile img {
+			display: inline-block;
+			margin-top: 2em;
+			width: 3em;
+			border-radius: 50%;
+			vertical-align: baseline;
+		}
+		.deck-slide .profile p {
+			display: inline-block;
+			margin-left: 0.5em;
+			vertical-align: 60%;
+		}
+		.reveal .col-5{
+			display: inline-block;
+			width: 50%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="deck-slide">
+				<h2 style="line-height: 1.5em;">初识 Angular2</h2>
+			  <div class="profile">
+				  <img src="./images/my_header.jpg">
+					<p>
+						郭德实<br/>
+						<a style="color: #fff;" href="https://github.com/limerickgds">@limerick</a>
+					</p>
+			  </div>
+			</section>
+			<section>
+				<img style="width: 5em; background: rgba(255, 255, 255, 0);" src="./images/angular.svg">
+				<p>Angular&nbsp;<strong style="color: red;">X</strong></p>
+				<img class="fragment" src="./images/versions.png">
+			</section>
+			<section>
 				<section>
-					<h2 style="line-height: 1.5em;">初识 Angular2</h2>
-					<p style="position: absolute; right: 3.5em;bottom: -6em;">--郭德实</p>
+					<h2>Angular 是什么？</h2>
+					<p><strong style="font-size: 2em; color: red;">&lt;</strong> 英文叫 angular bracket.</p>
 				</section>
 				<section>
-          <h2>Angular 是什么？</h2>
-          <ul>
-            <li class="fragment"><strong>跨平台开发</strong> - Web应用、移动Web应用、原生移动应用和原生桌面应用等</li>
-            <li class="fragment"><strong>扩展性</strong> - 扩展HTML的语法以清晰，简洁地表达应用程序的组件</li>
-            <li class="fragment"><strong>一站式</strong> - router, DI, form, pipe...</li>
-            <li class="fragment"><strong>速度与性能</strong> - Web Worker，服务端渲染，AOT</li>
-          </ul>
-        </section>
+					<h2>Angular 特性</h2>
+					<ul>
+						<li class="fragment"><strong>跨平台开发</strong> - Web应用、移动Web应用、原生移动应用和原生桌面应用等</li>
+						<li class="fragment"><strong>扩展性</strong> - 扩展HTML的语法以清晰，简洁地表达应用程序的组件</li>
+						<li class="fragment"><strong>一站式</strong> - router, DI, form, pipe...</li>
+						<li class="fragment"><strong>速度与性能</strong> - Web Worker，服务端渲染，AOT</li>
+					</ul>
+				</section>
+			</section>
+			<section data-background="./images/angular_car.gif">
+			</section>
+			<section>
+				<p> Browser support of Angular2</p>
+				<img style="width: 16em; background: rgba(255, 255, 255, 1);" src="./images/testStatus.svg">
+			</section>
+			<section>
+				<h2>Using TypeScript</h2>
+				<img style="width: 16em; background: rgba(255, 255, 255, 0);" src="./images/typescript.png">
+			</section>
+			<section>
 				<section>
-					<img style="width: 5em; border: 0; box-shadow: none; background: rgba(255, 255, 255, 0);" src="./images/angular.svg">
-					<p>Angular&nbsp;<strong style="color: red;">X</strong></p>
-					<img class="fragment" src="./images/versions.png">
+					<h2>Angular 架构</h2>
+					<img style="width: 26em; background: rgba(255, 255, 255, 0);" src="./images/architecture.png">
 				</section>
 				<section>
-					<p> Browser support of Angular2</p>
-					<img style="width: 16em; border: 0; box-shadow: none; background: rgba(255, 255, 255, 1);" src="./images/testStatus.svg">
+					<h3>Angular 主要的构成部分：</h3>
+					<ul>
+						<li class="fragment"><strong>模块（module）</strong></li>
+						<li class="fragment"><strong>组件（component）</strong></li>
+						<li class="fragment"><strong>模板（template）</strong></li>
+						<li class="fragment"><strong>元数据（metadata）</strong></li>
+						<li class="fragment"><strong>数据绑定（data binding）</strong></li>
+						<li class="fragment"><strong>指令（directive）</strong></li>
+						<li class="fragment"><strong>服务（service）</strong></li>
+						<li class="fragment"><strong>依赖注入（dependency injection）</strong></li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<h3>新手篇</h3>
+			</section>
+			<section>
+				<h3><a href="http://plnkr.co/edit/mgu1vbbgFet3FnXeAvxQ?p=preview">一个例子</a></h3>
+				<img style="width: 8em; background: rgba(255, 255, 255, 0);" src="./images/project_dir.png">
+			</section>
+			<section>
+				<h3>App 模块</h3>
+				<pre>
+					<code>
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser;
+import { HelloWorldComponent } from './hello-world.component';
+@NgModule({
+	imports: [ BrowserModule ],
+	declarations: [ HelloWorldComponent ],
+	bootstrap: [ HelloWorldComponent ]
+})
+export class AppModule {}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>启动模块</h3>
+				<p>main.ts</p>
+				<pre>
+					<code>
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+					</code>
+				</pre>
+				<p>index.html</p>
+				<pre>
+					<code>
+&lt;body&gt;
+	&lt;my-app&gt;Loading AppComponent content here ...&lt;/my-app&gt;
+&lt;/body&gt;
+					</code>
+				</pre>
+			</section>
+			<section>
+				<section>
+					<h3>App 组件</h3>
+					<pre>
+						<code>
+import { Component }  from '@angular/core';
+
+@Component({
+  moduleId: module.id,
+  selector: 'my-app',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css']
+})
+export class AppComponent {
+  title = 'App Component';
+}
+						</code>
+					</pre>
 				</section>
 				<section>
-          <h2>Using Typescript</h2>
-					<img style="width: 16em; border: 0; box-shadow: none; background: rgba(255, 255, 255, 0);" src="./images/typescript.png">
-        </section>
+					<h4>一些常用的组件属性</h4>
+					<table>
+						<tr><td>animations</td><td>动画列表</td></tr>
+						<tr><td>changeDetection</td><td>变化检测策略</td></tr>
+						<tr><td>encapsulation</td><td>样式封装策</td></tr>
+						<tr><td>host</td><td>元素映射到host</td></tr>
+						<tr><td>inputs</td><td>输入</td></tr>
+						<tr><td>ouputs</td><td>可订阅的输出</td></tr>
+						<tr><td>viewProviders</td><td>本身及子视图可用provider</td></tr>
+						<tr><td>...</td><td>...</td></tr>
+					</table>
+				</section>
+			</section>
+			<section>
+				<h3>模板</h3>
+				<pre>
+					<code>
+&lt;h3&gt;Top Heroes&lt;/h3&gt;
+&lt;div class="grid grid-pad"&gt;
+  &lt;a *ngFor="let hero of heroes" class="col-1-4"&gt;
+    &lt;div class="module hero"&gt;
+      &lt;h4&gt;{{hero.name}}&lt;/h4&gt;
+    &lt;/div&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+&lt;hero-search&gt;&lt;/hero-search&gt;
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>数据绑定</h3>
+				<table>
+					<tr><td>data -&gt; view </td><td>{{expression}},[target] = "expression",bind-target = "expression"</td></tr>
+					<tr><td>view -&gt; data</td><td>(target) = "statement",on-target = "statement</td></tr>
+					<tr><td>data &lt;-&gt; view</td><td>[(target)] = "expression",bindon-target = "expression"</td></tr>
+					</table>
+			</section>
+			<section>
+				<h3>管道</h3>
+				<pre>
+					<code>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'hero-birthday',
+  template: `<p>The hero's birthday is {{ birthday | date:"MM/dd/yy" }}</p>`
+})
+export class HeroBirthdayComponent {
+  birthday = new Date(1988, 3, 15); // 04/15/88
+}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>管道</h3>
+				<ul>
+					<li><strong>链式管道（Chaining pipes）</strong></li>
+					<li><strong>纯(pure)管道与非纯(impure)管道</strong></li>
+					<li><strong>非纯管道AsyncPipe</strong></li>
+				</ul>
+			</section>
+			<section>
+				<h3>自定义管道</h3>
+				<pre>
+					<code>
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({name: 'exponentialStrength'})
+export class ExponentialStrengthPipe implements PipeTransform {
+  transform(value: number, exponent: string): number {
+    let exp = parseFloat(exponent);
+    return Math.pow(value, isNaN(exp) ? 1 : exp);
+  }
+}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>指令</h3>
+				<ul>
+					<li class="fragment"><strong>拥有模板的指令</strong> - 组件</li>
+					<li class="fragment"><strong>结构性指令</strong> - ngIf,ngFor</li>
+					<li class="fragment"><strong>属性指令</strong> - NgStyle,NgClick</li>
+				</ul>
+			</section>
+			<section>
+				<pre>
+					<code>
+import { Directive, ElementRef, Input, Renderer } from '@angular/core';
+
+@Directive({ selector: '[myHighlight]' })
+export class HighlightDirective {
+    constructor(el: ElementRef, renderer: Renderer) {
+       renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'yellow');
+    }
+}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>依赖注入</h3>
+				<div class="col-5">
+					<p>不使用 DI</p>
+					<pre>
+						<code>
+export class DashboardComponent implements OnInit {
+  heroes: Hero[] = [];
+  heroService: HeroService
+
+  constructor(private heroService: HeroService) {
+    this.heroService = new HeroService();
+  }
+
+  ngOnInit(): void {
+    this.heroService.getHeroes()
+      .then(heroes => this.heroes = heroes.slice(1, 5));
+  }
+}
+						</code>
+					</pre>
+				</div><div class="col-5">
+					<p>使用 DI</p>
+					<pre>
+						<code>
+export class DashboardComponent implements OnInit {
+  heroes: Hero[] = [];
+  /**
+  * ts通过构造函数参数注入
+  * 当然前提是 HeroService 是 Injectable，并且已经被注册
+  **/
+  constructor(private heroService: HeroService) { }
+
+  ngOnInit(): void {
+    this.heroService.getHeroes()
+      .then(heroes => this.heroes = heroes.slice(1, 5));
+  }
+}
+						</code>
+					</pre>
+				</div>
+			</section>
+			<section>
+				<h3>老司机篇</h3>
+			</section>
+			<section>
 				<section>
-					<h2>Architecture</h2>
-					<img style="width: 16em; border: 0; box-shadow: none; background: rgba(255, 255, 255, 0);" src="./images/architecture.png">
-        </section>
-			</div>
+					<h3>组件生命周期</h3>
+					<img style="width: 12em; background: rgba(255, 255, 255, 0);" src="./images/hooks-in-sequence.png">
+				</section>	
+				<section>
+				  <pre>
+					  <code>
+export class PeekABoo implements OnInit {
+  constructor(private logger: LoggerService) { }
+
+  // 实现 OnInit 接口的 `ngOnInit` 方法
+  ngOnInit() { this.logIt(`OnInit`); }
+
+  logIt(msg: string) {
+    this.logger.log(`#${nextId++} ${msg}`);
+  }
+}
+					  </code>
+				  </pre>
+			  </section>
+			</section>
+			<section>
+				<h3>组件更新</h3>
+			</section>
+			<section>
+				<section>
+					<h3>ZONES</h3>
+					<p>ngZone</p>
+				</section>
+				<section>
+					<pre>
+						<code>
+function foo() {}
+function main() {
+  foo()
+  setTimeout(() => console.log('Async task'),2000)
+}
+var myZoneSpec = {
+  beforeTask: function () {
+    console.log('Before task');
+  },
+  afterTask: function () {
+    console.log('After task');
+  }
+};
+
+var myZone = zone.fork(myZoneSpec);
+myZone.run(main);
+						</code>
+					</pre>
+				</section>
+				<section>
+					<pre>
+						<code>
+// Logs:
+// Before task
+// After task
+// Before task
+// Async task
+// After task
+						</code>
+					</pre>
+				</section>
+			</section>		
+			<section>
+				<img style="width: 22em; background: rgba(255, 255, 255, 0);" src="./images/cd-tree-2.svg">
+			</section>
+			<section>
+				<img style="width: 22em; background: rgba(255, 255, 255, 0);" src="./images/cd-tree-7.svg">
+			</section>
+			<section>
+				<h3>ng1 vs ng2</h3>
+				<img style="width: 18em; background: rgba(255, 255, 255, 0);" src="./images/ng1_vs_ng2_dc.png">
+			</section>
+			<section>
+				<h3>Smarter Change Detection</h3>
+			</section>
+			<section>
+				<h3>Immutable</h3>
+				<img style="width: 22em; background: rgba(255, 255, 255, 0);" src="./images/cd-tree-8.svg">
+			</section>
+			<section>
+				<section>
+					<h3>Observables</h3>
+				</section>
+				<section>
+					<img style="width: 22em; background: rgba(255, 255, 255, 0);" src="./images/cd-tree-11.svg">
+				</section>
+				<section>
+					<img style="width: 22em; background: rgba(255, 255, 255, 0);" src="./images/cd-tree-13.svg">
+				</section>
+			</section>
+			<section>
+				<h3>组件之间的通讯</h3>
+				<ul>
+					<li class="fragment"><strong>input,output</strong></li>
+					<li class="fragment"><strong>子组件通过 ngOnChanges 拦截</strong></li>
+					<li class="fragment"><strong>父子组件通过 local variable</strong></li>
+					<li class="fragment"><strong>父组件调用ViewChild</strong></li>
+					<li class="fragment"><strong>service</strong></li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h3>Ahead-of-Time(AoT) vs Just-in-Time(JiT)</h3>
+				</section>
+				<section>
+					<ul>
+						<p >为何使用 AoT ?</p>
+						<li>渲染更快</li>
+						<li>减少异步请求</li>
+						<li>减少下载 Angular 框架体积</li>
+						<li>提早检测模板错误</li>
+					</ul>
+					<p style="position: absolute; right: 6em; bottom: -6em;" class="fragment"><strong>开发</strong>使用 JiT, <strong>生产</strong>使用 AoT</p>
+				</section>
+			</section>
+			<section>
+				<h3>翻车篇</h3>
+			</section>
+			<section>
+				<h3>Waiting for you...</h3>
+			</section>
+			<section>
+				<h3>Angular 优秀网站推荐：</h3>
+				<ul>
+					<li>
+						<a href="http://blog.thoughtram.io/"><strong>thoughtram</strong> - 高质量的 Angular 文章</a>
+					</li>
+					<li>
+						<a href="http://blog.angular-university.io/"><strong>angular-university</strong></a>
+					</li>
+					<li>
+						<a href="http://www.angular2.com/"><strong>angular2社区</strong></a>
+					</li>
+					<li>
+						<a href="https://material.angular.io/"><strong>material2</strong> - material ui</a>
+					</li>
+					<li>
+						<a href="https://valor-software.com/ng2-bootstrap"><strong>ng2-bootstrap</strong> - bootstrap ui</a>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>END</h2>
+				<h2>THANKS</h2>
+			</section>
 		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
@@ -80,5 +498,6 @@
 				]
 			});
 		</script>
-	</body>
+</body>
+
 </html>
